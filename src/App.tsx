@@ -1,13 +1,20 @@
 import React from "react";
 import { GlobalStyle } from "./styles/GlobalStyles";
-import logo from "./assets/logo.svg";
+import Hero from "./components/Hero";
+import Nav from "./components/Nav";
+import Projects from "./components/Projects";
+import Tools from "./components/Tools";
+import Contact from "./components/Contact";
 
 const App: React.FC = () => {
   return (
     <div className="App">
       <GlobalStyle />
-      <h1>well hello there</h1>
-      <img src={logo} alt="logo" />
+      <Nav />
+      <Hero />
+      <Projects />
+      <Tools />
+      <Contact />
     </div>
   );
 }
