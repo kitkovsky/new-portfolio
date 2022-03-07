@@ -55,6 +55,13 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: normal;
   }
 
+  @media screen and (min-width: 1920px) {
+    body {
+      max-width: 1920px;
+      margin: auto;
+    }
+  }
+
   @media screen and (max-width: 1400px) {
     html {
       font-size: 50%;
