@@ -45,11 +45,11 @@ const Ul = styled.ul`
 const Nav: React.FC = () => {
   return (
     <Header>
-      <Logo href="index.html">
+      <Logo href="#hero">
         <img src={logo} alt="logo" />
       </Logo>
       <Ul>
-        <li><a href="#">Strona Główna</a></li>
+        <li><a href="#hero">Strona Główna</a></li>
         <li><a href="#portfolio">Portfolio</a></li>
         <li><a href="#tools">Umiejętności</a></li>
         <li><a href="#contact">Kontakt</a></li>
