@@ -23,21 +23,21 @@ export const GlobalStyle = createGlobalStyle`
     font-family: "Inter", sans-serif;
   }
 
+  h1 {
+    font-size: 5rem;
+  }
+
   h2 {
-    font-weight: lighter;
-    font-size: 6rem;
+    font-size: 4rem;
   }
 
   h3 {
     font-size: 2.3rem;
   }
 
-  h4 {
-    font-weight: bold;
-  }
-
   a {
     font-size: 2.3rem;
+    text-decoration: none;
   }
 
   p {
@@ -46,8 +46,13 @@ export const GlobalStyle = createGlobalStyle`
     line-height: 150%;
   }
 
-  h1, h2, h3, h4, a, p {
+  li {
+    font-size: 2rem;
+  }
+
+  h1, h2, h3, h4, a, p, li {
     color: white;
+    font-weight: normal;
   }
 
   @media screen and (max-width: 1400px) {
