@@ -16,9 +16,10 @@ const Logo = styled.a`
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  padding: 2rem 0rem;
 
   img {
-    height: 45%;
+    height: 100%;
   }
 `;
 
