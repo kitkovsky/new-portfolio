@@ -54,7 +54,7 @@ const Hero: React.FC = () => {
         </p>
       </HeroText>
       <HeroImg>
-        <img src={heroImage} alt="hero image" />
+        <img src={heroImage} alt="hero code" />
       </HeroImg>
     </Section>
   );
