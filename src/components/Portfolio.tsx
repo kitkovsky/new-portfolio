@@ -12,11 +12,12 @@ import photographyPortfolio from "../assets/photography-portfolio.png";
 import beatmaker from "../assets/beatmaker.png";
 
 const PortfolioStyled = styled.section`
-  margin: 10rem 5rem;
+  margin: 25rem 5rem;
   display: flex;
 
   @media screen and (max-width: 750px) {
     flex-direction: column;
+    margin: 15rem 5rem;
   }
 `;
 
