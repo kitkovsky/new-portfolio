@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation } from "swiper";
+import { Navigation } from "swiper";
 import { PrimaryColours } from "../styles/GlobalStyles";
 import capture from "../assets/capture.png";
 import colourPicker from "../assets/colour-picker.png";
@@ -14,6 +14,10 @@ import beatmaker from "../assets/beatmaker.png";
 const PortfolioStyled = styled.section`
   margin: 10rem 5rem;
   display: flex;
+
+  @media screen and (max-width: 750px) {
+    flex-direction: column;
+  }
 `;
 
 const PortfolioText = styled.div`
@@ -39,33 +43,34 @@ const PortfolioText = styled.div`
 const SwiperStyled = styled(Swiper)`
   flex: 1 1 20rem;
 
-  // .swiper {
-  //   width: 50rem;
-  //   height: 10rem;
-  // }
+  .swiper-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
-  // .swiper-slide {
-  //   text-align: center;
-  //   font-size: 18px;
-  //   background: #fff;
+    img {
+      width: 100%;
+    }
+  }
 
-  //   /* Center slide text vertically */
-  //   display: flex;
-  //   justify-content: center;
-  //   align-items: center;
-  // }
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: ${PrimaryColours.blue};
+  }
 
-  // .swiper-slide img {
-  //   display: block;
-  //   width: 100%;
-  //   height: 100%;
-  //   object-fit: cover;
-  // }
+  .swiper-button-next {
+    padding-right: 4rem;
+  }
 
-  // .swiper {
-  //   margin-left: auto;
-  //   margin-right: auto;
-  // }
+  .swiper-button-prev {
+    padding-left: 4rem;
+  }
+
+  @media screen and (max-width: 750px) {
+    min-height: 60vh;
+    width: 100%;
+  }
 `;
 
 const ColourP = styled.p`
@@ -119,28 +124,60 @@ const Portfolio: React.FC = () => {
         slidesPerView={1}
         spaceBetween={30}
         loop={true}
-        pagination={{ clickable: true }}
         navigation={true}
-        modules={[Pagination, Navigation]}
+        modules={[Navigation]}
       >
         <SwiperSlide>
-          <img src={capture} alt="capture website" />
+          <a
+            href="https://vibrant-brattain-45c715.netlify.app"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img src={capture} alt="capture website" />
+          </a>
           <h3>Capture</h3>
         </SwiperSlide>
         <SwiperSlide>
-          <img src={colourPicker} alt="colour picker website" />
+          <a
+            href="https://optimistic-rosalind-1bef0e.netlify.app"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img src={colourPicker} alt="colour picker website" />
+          </a>
           <h3>Colour Picker</h3>
         </SwiperSlide>
         <SwiperSlide>
-          <img src={musicPlayer} alt="music player website" />
+          <a
+            href="https://gifted-yonath-096073.netlify.app"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img src={musicPlayer} alt="music player website" />
+          </a>
           <h3>Music Player</h3>
         </SwiperSlide>
         <SwiperSlide>
-          <img src={photographyPortfolio} alt="photography portfolio website" />
+          <a
+            href="https://determined-bhaskara-0b23f3.netlify.app"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              src={photographyPortfolio}
+              alt="photography portfolio website"
+            />
+          </a>
           <h3>Photography Portfolio</h3>
         </SwiperSlide>
         <SwiperSlide>
-          <img src={beatmaker} alt="beatmaker website" />
+          <a
+            href="https://gracious-lovelace-036ae5.netlify.app"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img src={beatmaker} alt="beatmaker website" />
+          </a>
           <h3>Beatmaker</h3>
         </SwiperSlide>
       </SwiperStyled>
