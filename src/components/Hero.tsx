@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import heroImage from "../assets/hero-img.svg";
 import { PrimaryColours } from "../styles/GlobalStyles";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Section = styled.section`
   margin: 7rem 5rem;
@@ -19,12 +21,24 @@ const HeroText = styled.div`
   margin-right: 2rem;
 
   .hero-name {
-    color: ${PrimaryColours.blue}
+    color: ${PrimaryColours.blue};
   }
 `;
 
 const HeroMainText = styled.h1`
   font-weight: bold;
+`;
+
+const ScrollDown = styled.div`
+  svg {
+    color: ${PrimaryColours.blue};
+    height: 3rem;
+  }
+
+  a {
+    padding: 1rem;
+    color: ${PrimaryColours.blue};
+  }
 `;
 
 const HeroImg = styled.div`
@@ -52,6 +66,10 @@ const Hero: React.FC = () => {
           Tworzę nowoczesne, wysokowydajne i responsywne strony internetowe z
           wykorzystaniem najnowszych technologii.
         </p>
+        <ScrollDown>
+          <FontAwesomeIcon icon={faChevronDown} />
+          <a href="#portfolio">Zobacz portfolio</a>
+        </ScrollDown>
       </HeroText>
       <HeroImg>
         <img src={heroImage} alt="hero code" />
