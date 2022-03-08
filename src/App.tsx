@@ -5,6 +5,7 @@ import Nav from "./components/Nav";
 import Portfolio from "./components/Portfolio";
 import Tools from "./components/Tools";
 import Contact from "./components/Contact";
+import "swiper/css/bundle";
 
 const App: React.FC = () => {
   return (
