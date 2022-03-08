@@ -20,7 +20,7 @@ const HeroText = styled.div`
   flex: 1 1 20rem;
   margin-right: 2rem;
 
-  .hero-name {
+  .hero-colour {
     color: ${PrimaryColours.blue};
   }
 `;
@@ -28,6 +28,7 @@ const HeroText = styled.div`
 const HeroMainText = styled.h1`
   font-weight: bold;
 `;
+
 
 const ScrollDown = styled.div`
   cursor: pointer;
@@ -62,7 +63,7 @@ const Hero: React.FC = () => {
   return (
     <Section id="hero">
       <HeroText>
-        <p className="hero-name">Oliwer Kitkowski</p>
+        <p className="hero-colour">Oliwer Kitkowski</p>
         <HeroMainText>Nowoczesne strony internetowe</HeroMainText>
         <p>
           Tworzę nowoczesne, wysokowydajne i responsywne strony internetowe z
