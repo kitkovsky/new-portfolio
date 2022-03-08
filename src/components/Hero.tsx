@@ -30,6 +30,8 @@ const HeroMainText = styled.h1`
 `;
 
 const ScrollDown = styled.div`
+  cursor: pointer;
+
   svg {
     color: ${PrimaryColours.blue};
     height: 3rem;
