@@ -2,6 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 export const PrimaryColours = {
   bgBlack: "rgb(20, 20, 20)",
+  grey: "rgb(150, 150, 150)",
   darkBlue: "rgb(42, 136, 164)",
   blue: "rgb(50, 162, 196)",
   lightBlue: "rgb(70, 179, 207)",
@@ -24,11 +25,11 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   h1 {
-    font-size: 5rem;
+    font-size: 7rem;
   }
 
   h2 {
-    font-size: 4rem;
+    font-size: 6rem;
   }
 
   h3 {
