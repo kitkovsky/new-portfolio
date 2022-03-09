@@ -131,7 +131,7 @@ const Nav: React.FC<Props> = ({ mobileNavOpen, setMobileNavOpen }) => {
       </Logo>
       <Ul>
         <li>
-          <a href="#hero">Strona Główna</a>
+          <a href="#hero">Strona główna</a>
         </li>
         <li>
           <a href="#portfolio">Portfolio</a>
@@ -146,7 +146,7 @@ const Nav: React.FC<Props> = ({ mobileNavOpen, setMobileNavOpen }) => {
       <UlMobileWrapper className={mobileNavOpen ? "active" : ""}>
         <UlMobile>
           <li>
-            <a href="#hero">Strona Główna</a>
+            <a href="#hero">Strona główna</a>
           </li>
           <li>
             <a href="#portfolio">Portfolio</a>
