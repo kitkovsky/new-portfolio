@@ -6,6 +6,7 @@ import Portfolio from "./components/Portfolio";
 import Tools from "./components/Tools";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import UpArrow from "./components/UpArrow";
 import "swiper/css/bundle";
 
 const App: React.FC = () => {
@@ -18,6 +19,7 @@ const App: React.FC = () => {
       <Tools />
       <Contact />
       <Footer />
+      <UpArrow />
     </div>
   );
 }
