@@ -187,16 +187,24 @@ const Nav: React.FC<Props> = ({ mobileNavOpen, setMobileNavOpen }) => {
       <UlMobileWrapper className={mobileNavOpen ? "active" : ""}>
         <UlMobile>
           <li>
-            <a href="#hero">Strona główna</a>
+            <a href="#hero" onClick={handleMobileNav}>
+              Strona główna
+            </a>
           </li>
           <li>
-            <a href="#portfolio">Portfolio</a>
+            <a href="#portfolio" onClick={handleMobileNav}>
+              Portfolio
+            </a>
           </li>
           <li>
-            <a href="#tools">Umiejętności</a>
+            <a href="#tools" onClick={handleMobileNav}>
+              Umiejętności
+            </a>
           </li>
           <li>
-            <a href="#contact">Kontakt</a>
+            <a href="#contact" onClick={handleMobileNav}>
+              Kontakt
+            </a>
           </li>
         </UlMobile>
       </UlMobileWrapper>
