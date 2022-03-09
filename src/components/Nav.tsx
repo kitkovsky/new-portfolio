@@ -9,6 +9,7 @@ const Header = styled.header`
   position: sticky;
   top: 0;
   backdrop-filter: blur(20px);
+  z-index: 2;
 `;
 
 const Logo = styled.a`
