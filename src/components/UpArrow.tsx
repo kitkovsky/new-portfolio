@@ -17,10 +17,18 @@ const Arrow = styled.a`
   }
 `;
 
-const UpArrow: React.FC = () => {
+interface Props {
+  mobileNavOpen: boolean;
+}
+
+const UpArrow: React.FC<Props> = ({ mobileNavOpen }) => {
   return (
     <Arrow href="#hero">
-      <FontAwesomeIcon icon={faChevronUp} size="2x" />
+      <FontAwesomeIcon
+        icon={faChevronUp}
+        size="2x"
+        className={mobileNavOpen ? "hidden" : ""}
+      />
     </Arrow>
   );
 };

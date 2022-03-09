@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import logo from "../assets/logo.svg";
 import noise from "../assets/noise.png";
@@ -114,13 +114,14 @@ const Burger = styled.div`
   }
 `;
 
-const Nav: React.FC = () => {
-  const [mobileNavOpen, setMobileNavOpen] = useState(false);
-  const bodyWrapper = document.querySelector("#body-wrapper") as HTMLDivElement;
+interface Props {
+  mobileNavOpen: boolean;
+  setMobileNavOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
+const Nav: React.FC<Props> = ({ mobileNavOpen, setMobileNavOpen }) => {
   const handleMobileNav = () => {
     setMobileNavOpen(!mobileNavOpen);
-    bodyWrapper.classList.toggle("no-scroll");
   };
 
   return (

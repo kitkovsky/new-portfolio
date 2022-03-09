@@ -14,6 +14,10 @@ export const GlobalStyle = createGlobalStyle`
     transform: translateX(0);
   }
 
+  .hidden {
+    display: none;
+  }
+
   .no-scroll {
     overflow-y: hidden;
   }
