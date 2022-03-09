@@ -90,7 +90,7 @@ const GreyIcon = styled(FontAwesomeIcon)`
 
 const Tools: React.FC = () => {
   return (
-    <Section>
+    <Section id="tools">
       <Text>
         <ColourP>
           <span></span>Umiejętności i narzędzia
