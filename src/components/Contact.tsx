@@ -59,7 +59,7 @@ const StyledForm = styled.form`
   min-width: 100%;
 
   label {
-    color: white;
+    color: ${PrimaryColours.white};
     font-size: 2.3rem;
     margin-top: 2rem;
     margin-bottom: 1rem;
@@ -80,12 +80,12 @@ const StyledForm = styled.form`
     border: none;
     padding: 1.5rem;
     margin-bottom: 1.5rem;
-    color: white;
+    color: ${PrimaryColours.white};
     font-size: 1.8rem;
   }
 
   button {
-    color: white;
+    color: ${PrimaryColours.white};
     background: ${PrimaryColours.bgGrey};
     border: none;
     padding: 2rem 3.5rem;

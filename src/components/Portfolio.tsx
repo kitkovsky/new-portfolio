@@ -40,7 +40,7 @@ const PortfolioText = styled.div`
     cursor: pointer;
 
     &:hover {
-      color: white;
+      color: ${PrimaryColours.white};
     }
   }
 `;

@@ -4,9 +4,8 @@ export const PrimaryColours = {
   bgBlack: "rgb(20, 20, 20)",
   textGrey: "rgb(150, 150, 150)",
   bgGrey: "rgb(30, 30, 30)",
-  darkBlue: "rgb(42, 136, 164)",
   blue: "rgb(50, 162, 196)",
-  lightBlue: "rgb(70, 179, 207)",
+  white: "rgb(252, 246, 244)",
 };
 
 export const GlobalStyle = createGlobalStyle`
@@ -89,7 +88,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   h1, h2, h3, h4, a, p, li {
-    color: white;
+    color: ${PrimaryColours.white};
     font-weight: normal;
   }
 

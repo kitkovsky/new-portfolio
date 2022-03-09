@@ -98,7 +98,7 @@ const Burger = styled.div`
     display: block;
     position: absolute;
     height: 1px;
-    background: white;
+    background: ${PrimaryColours.white};
     transition: all 0.25s ease-in-out;
   }
 
