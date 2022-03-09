@@ -10,7 +10,7 @@ const Section = styled.section`
     margin: 20rem 3rem;
   }
 
-  @media screen and (max-width: 750px) {
+  @media screen and (max-width: 800px) {
     flex-direction: column;
     margin: 15rem 3rem;
   }
@@ -24,6 +24,7 @@ const Text = styled.div`
 
   h2 {
     font-weight: bold;
+    padding-right: 3rem;
   }
 `;
 
@@ -69,7 +70,7 @@ const StyledForm = styled.form`
   }
 
   textarea {
-    // min-height: 35rem;
+    min-height: 30rem;
     resize: none;
   }
 
@@ -90,11 +91,14 @@ const StyledForm = styled.form`
     padding: 2rem 3.5rem;
     margin: 2rem 0rem;
     font-size: 2.3rem;
+    width: 15rem;
+    cursor: pointer;
   }
 `;
 
 const ContactLinks = styled.div`
   display: flex;
+  margin-bottom: 4rem;
 `;
 
 const ContactDiv = styled.div`
