@@ -5,6 +5,7 @@ import Nav from "./components/Nav";
 import Portfolio from "./components/Portfolio";
 import Tools from "./components/Tools";
 import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 import "swiper/css/bundle";
 
 const App: React.FC = () => {
@@ -16,6 +17,7 @@ const App: React.FC = () => {
       <Portfolio />
       <Tools />
       <Contact />
+      <Footer />
     </div>
   );
 }
