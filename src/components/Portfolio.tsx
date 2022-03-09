@@ -34,7 +34,7 @@ const PortfolioText = styled.div`
   }
 
   svg {
-    color: ${PrimaryColours.grey};
+    color: ${PrimaryColours.textGrey};
     height: 5rem;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
@@ -94,7 +94,7 @@ const SwiperStyled = styled(Swiper)`
 `;
 
 const GreyP = styled.p`
-  color: ${PrimaryColours.grey};
+  color: ${PrimaryColours.textGrey};
   font-size: 1.8rem;
 
   span {

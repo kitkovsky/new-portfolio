@@ -59,7 +59,7 @@ const ColourP = styled.p`
 `;
 
 const GreyP = styled.p`
-  color: ${PrimaryColours.grey};
+  color: ${PrimaryColours.textGrey};
   font-size: 1.8rem;
 `;
 
@@ -90,13 +90,13 @@ const TechDiv = styled.div`
   height: 141px;
 
   p {
-    color: ${PrimaryColours.grey};
+    color: ${PrimaryColours.textGrey};
     font-size: 1.4rem;
   }
 `;
 
 const GreyIcon = styled(FontAwesomeIcon)`
-  color: ${PrimaryColours.grey};
+  color: ${PrimaryColours.textGrey};
 `;
 
 const Tools: React.FC = () => {
