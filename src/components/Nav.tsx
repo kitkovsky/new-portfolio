@@ -14,6 +14,32 @@ const Header = styled.header`
   z-index: 2;
   padding: 0rem 5rem;
 
+  .active {
+    transform: translateX(0);
+  }
+
+  .active span:nth-child(1) {
+    top: 0.8rem;
+    width: 0;
+    left: 50%;
+  }
+
+  .active span:nth-child(2) {
+    top: 0.8rem;
+    transform: rotate(45deg);
+  }
+
+  .active span:nth-child(3) {
+    top: 0.8rem;
+    transform: rotate(-45deg);
+  }
+
+  .active span:nth-child(4) {
+    top: 0.8rem;
+    width: 0;
+    left: 50%;
+  }
+
   @media screen and (max-width: 900px) {
     padding: 0rem 3rem;
   }

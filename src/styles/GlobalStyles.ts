@@ -9,32 +9,6 @@ export const PrimaryColours = {
 };
 
 export const GlobalStyle = createGlobalStyle`
-  .active {
-    transform: translateX(0);
-  }
-
-  .active span:nth-child(1) {
-    top: 0.8rem;
-    width: 0;
-    left: 50%;
-  }
-
-  .active span:nth-child(2) {
-    top: 0.8rem;
-    transform: rotate(45deg);
-  }
-
-  .active span:nth-child(3) {
-    top: 0.8rem;
-    transform: rotate(-45deg);
-  }
-
-  .active span:nth-child(4) {
-    top: 0.8rem;
-    width: 0;
-    left: 50%;
-  }
-
   .hidden {
     display: none;
   }
