@@ -10,6 +10,14 @@ export const PrimaryColours = {
 };
 
 export const GlobalStyle = createGlobalStyle`
+  .active {
+    transform: translateX(0);
+  }
+
+  .no-scroll {
+    overflow-y: hidden;
+  }
+
   * {
     margin: 0;
     padding: 0;
@@ -24,6 +32,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     background: ${PrimaryColours.bgBlack};
     font-family: "Inter", sans-serif;
+    overflow-x: hidden;
   }
 
   h1 {

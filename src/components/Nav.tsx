@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import logo from "../assets/logo.svg";
+import noise from "../assets/noise.png";
+import { PrimaryColours } from "../styles/GlobalStyles";
 
 const Header = styled.header`
   display: flex;
@@ -27,6 +29,7 @@ const Logo = styled.a`
   align-items: center;
   justify-content: flex-start;
   padding: 2rem 0rem;
+  z-index: 2;
 
   img {
     height: 3rem;
@@ -53,8 +56,24 @@ const Ul = styled.ul`
   }
 
   @media screen and (max-width: 750px) {
-    background: red;
+    display: none;
   }
+`;
+
+const UlMobileWrapper = styled.div`
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(100vw);
+  background: ${PrimaryColours.bgBlack};
+  background-image: url(${noise});
+  transition: transform 0.5s ease-in-out;
+`;
+
+const UlMobile = styled.ul`
+  list-style: none;
 `;
 
 const Burger = styled.div`
@@ -63,6 +82,7 @@ const Burger = styled.div`
   width: 3.2rem;
   transform: rotate(0deg);
   transition: all 0.5 ease-in-out;
+  display: none;
 
   span {
     display: block;
@@ -88,13 +108,19 @@ const Burger = styled.div`
     left: 1.2rem;
     width: 2rem;
   }
+
+  @media screen and (max-width: 750px) {
+    display: block;
+  }
 `;
 
 const Nav: React.FC = () => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const bodyWrapper = document.querySelector("#body-wrapper") as HTMLDivElement;
 
   const handleMobileNav = () => {
     setMobileNavOpen(!mobileNavOpen);
+    bodyWrapper.classList.toggle("no-scroll");
   };
 
   return (
@@ -116,7 +142,7 @@ const Nav: React.FC = () => {
           <a href="#contact">Kontakt</a>
         </li>
       </Ul>
-      <UlMobileWrapper mobileNavOpen={mobileNavOpen}>
+      <UlMobileWrapper className={mobileNavOpen ? "active" : ""}>
         <UlMobile>
           <li>
             <a href="#hero">Strona Główna</a>
