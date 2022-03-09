@@ -21,7 +21,11 @@ const Section = styled.section`
 
   @media screen and (max-width: 750px) {
     flex-direction: column;
-    margin: 15rem 3rem;
+    margin: 8rem 3rem;
+  }
+
+  @media screen and (max-width: 500px) {
+    margin: 8rem 2rem;
   }
 `;
 
@@ -42,6 +46,10 @@ const PortfolioText = styled.div`
     &:hover {
       color: ${PrimaryColours.white};
     }
+  }
+
+  @media screen and (max-width: 750px) {
+    margin-right: 0rem;
   }
 `;
 
@@ -88,8 +96,25 @@ const SwiperStyled = styled(Swiper)`
   }
 
   @media screen and (max-width: 750px) {
-    min-height: 60vh;
+    min-height: 45vh;
+    margin-top: 3rem;
     width: 100%;
+  }
+
+  @media screen and (max-width: 650px) {
+    min-height: 40vh;
+  }
+
+  @media screen and (max-width: 550px) {
+    min-height: 35vh;
+  }
+
+  @media screen and (max-width: 450px) {
+    min-height: 30vh;
+  }
+
+  @media screen and (max-width: 400px) {
+    min-height: 27vh;
   }
 `;
 

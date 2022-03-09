@@ -72,4 +72,10 @@ export const GlobalStyle = createGlobalStyle`
       margin: auto;
     }
   }
+
+  @media screen and (max-width: 750px) {
+    html {
+      font-size: 52.5%;
+    }
+  }
 `;

@@ -26,7 +26,11 @@ const Section = styled.section`
 
   @media screen and (max-width: 750px) {
     flex-direction: column;
-    margin: 15rem 3rem;
+    margin: 8rem 3rem;
+  }
+
+  @media screen and (max-width: 500px) {
+    margin: 8rem 2rem;
   }
 `;
 
@@ -40,6 +44,10 @@ const Text = styled.div`
 
   h2 {
     font-weight: bold;
+  }
+
+  @media screen and (max-width: 750px) {
+    margin-right: 0rem;
   }
 `;
 
@@ -87,11 +95,15 @@ const TechDiv = styled.div`
   justify-content: space-between;
   text-align: center;
   flex-direction: column;
-  height: 141px;
+  height: 14.1rem;
 
   p {
     color: ${PrimaryColours.textGrey};
     font-size: 1.4rem;
+  }
+
+  @media screen and (max-width: 750px) {
+    height: 12rem;
   }
 `;
 

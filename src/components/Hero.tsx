@@ -18,6 +18,10 @@ const Section = styled.section`
   @media screen and (max-width: 750px) {
     flex-direction: column;
   }
+
+  @media screen and (max-width: 500px) {
+    margin: 3rem 2rem;
+  }
 `;
 
 const HeroText = styled.div`
@@ -31,6 +35,10 @@ const HeroText = styled.div`
 
   p {
     font-size: 1.8rem;
+  }
+
+  @media screen and (max-width: 750px) {
+    margin-right: 0rem;
   }
 `;
 

@@ -47,6 +47,10 @@ const Header = styled.header`
   @media screen and (max-width: 750px) {
     max-height: 7rem;
   }
+
+  @media screen and (max-width: 500px) {
+    padding: 0rem 2rem;
+  }
 `;
 
 const Logo = styled.a`

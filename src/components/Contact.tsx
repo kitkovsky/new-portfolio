@@ -12,7 +12,11 @@ const Section = styled.section`
 
   @media screen and (max-width: 800px) {
     flex-direction: column;
-    margin: 15rem 3rem;
+    margin: 7rem 3rem;
+  }
+
+  @media screen and (max-width: 500px) {
+    margin: 7rem 2rem;
   }
 `;
 
@@ -47,6 +51,10 @@ const GreyP = styled.p`
   color: ${PrimaryColours.textGrey};
   font-size: 1.8rem;
   padding-right: 7rem;
+
+  @media screen and (max-width: 750px) {
+    padding-right: 0rem;
+  }
 `;
 
 const FormWrapper = styled.div`
@@ -99,6 +107,10 @@ const StyledForm = styled.form`
 const ContactLinks = styled.div`
   display: flex;
   margin-bottom: 4rem;
+
+  @media screen and (max-width: 750px) {
+    flex-direction: column;
+  }
 `;
 
 const ContactDiv = styled.div`

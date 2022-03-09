@@ -9,11 +9,23 @@ const Arrow = styled.a`
   bottom: 0rem;
   right: 0rem;
   background: ${PrimaryColours.bgGrey};
-  margin: 7rem;
+  margin: 5rem;
   z-index: 2;
 
   svg {
-    padding: 2rem;
+    padding: 1.5rem;
+    color: ${PrimaryColours.white};
+  }
+
+  @media screen and (max-width: 900px) {
+    margin: 3rem;
+    svg {
+      padding: 1rem;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    margin: 2rem;
   }
 `;
 
