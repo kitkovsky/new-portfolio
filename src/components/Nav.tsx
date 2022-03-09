@@ -19,7 +19,7 @@ const Logo = styled.a`
   padding: 2rem 0rem;
 
   img {
-    height: 100%;
+    height: 80%;
   }
 `;
 
@@ -28,10 +28,14 @@ const Ul = styled.ul`
   flex-direction: row;
   flex-grow: 3;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
 
   li {
     list-style: none;
+  }
+
+  a {
+    font-size: 2rem;
   }
 
   @media screen and (max-width: 950px) {

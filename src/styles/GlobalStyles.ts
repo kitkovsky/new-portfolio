@@ -25,19 +25,19 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   h1 {
-    font-size: 7rem;
-  }
-
-  h2 {
     font-size: 6rem;
   }
 
+  h2 {
+    font-size: 5rem;
+  }
+
   h3 {
-    font-size: 2.3rem;
+    font-size: 2rem;
   }
 
   a {
-    font-size: 2.3rem;
+    font-size: 2rem;
     text-decoration: none;
   }
 

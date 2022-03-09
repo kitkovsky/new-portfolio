@@ -30,7 +30,7 @@ const Text = styled.div`
   flex: 1 1 20rem;
   margin-right: 7rem;
 
-  h1 {
+  h2 {
     font-weight: bold;
   }
 `;
@@ -39,6 +39,7 @@ const ColourP = styled.p`
   display: flex;
   align-items: center;
   color: ${PrimaryColours.blue};
+  font-size: 1.8rem;
 
   span {
     display: inline-block;
@@ -51,6 +52,7 @@ const ColourP = styled.p`
 
 const GreyP = styled.p`
   color: ${PrimaryColours.grey};
+  font-size: 1.8rem;
 `;
 
 const Tech = styled.div`
@@ -78,7 +80,7 @@ const TechDiv = styled.div`
 
   p {
     color: ${PrimaryColours.grey};
-    font-size: 1.8rem;
+    font-size: 1.4rem;
   }
 `;
 
@@ -93,7 +95,7 @@ const Tools: React.FC = () => {
         <ColourP>
           <span></span>Umiejętności i narzędzia
         </ColourP>
-        <h1>Technologie, których używam do tworzenia stron</h1>
+        <h2>Technologie, których używam do tworzenia stron</h2>
         <GreyP>
           Przy projektowaniu i programowniu stron internetowych korzystam z
           najnowszych narzędzi i technologii. Dzięki nim, moje strony są

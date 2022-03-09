@@ -11,7 +11,7 @@ import musicPlayer from "../assets/music-player.png";
 import photographyPortfolio from "../assets/photography-portfolio.png";
 import beatmaker from "../assets/beatmaker.png";
 
-const PortfolioStyled = styled.section`
+const Section = styled.section`
   margin: 25rem 5rem;
   display: flex;
 
@@ -38,6 +38,21 @@ const PortfolioText = styled.div`
     &:hover {
       color: white;
     }
+  }
+`;
+
+const ColourP = styled.p`
+  display: flex;
+  align-items: center;
+  color: ${PrimaryColours.blue};
+  font-size: 1.8rem;
+
+  span {
+    display: inline-block;
+    width: 4rem;
+    height: 0.3rem;
+    margin-right: 2rem;
+    background: ${PrimaryColours.blue};
   }
 `;
 
@@ -74,22 +89,9 @@ const SwiperStyled = styled(Swiper)`
   }
 `;
 
-const ColourP = styled.p`
-  display: flex;
-  align-items: center;
-  color: ${PrimaryColours.blue};
-
-  span {
-    display: inline-block;
-    width: 4rem;
-    height: 0.3rem;
-    margin-right: 2rem;
-    background: ${PrimaryColours.blue};
-  }
-`;
-
 const GreyP = styled.p`
   color: ${PrimaryColours.grey};
+  font-size: 1.8rem;
 
   span {
     display: block;
@@ -99,7 +101,7 @@ const GreyP = styled.p`
 
 const Portfolio: React.FC = () => {
   return (
-    <PortfolioStyled id="portfolio">
+    <Section id="portfolio">
       <PortfolioText>
         <ColourP>
           <span></span>Portfolio
@@ -182,7 +184,7 @@ const Portfolio: React.FC = () => {
           <h3>Beatmaker</h3>
         </SwiperSlide>
       </SwiperStyled>
-    </PortfolioStyled>
+    </Section>
   );
 };
 

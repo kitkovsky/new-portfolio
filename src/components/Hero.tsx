@@ -22,6 +22,11 @@ const HeroText = styled.div`
 
   .hero-colour {
     color: ${PrimaryColours.blue};
+    font-size: 3rem;
+  }
+
+  p {
+    font-size: 1.8rem;
   }
 `;
 
@@ -35,12 +40,13 @@ const ScrollDown = styled.div`
 
   svg {
     color: ${PrimaryColours.blue};
-    height: 3rem;
+    height: 2rem;
   }
 
   a {
     padding: 1rem;
     color: ${PrimaryColours.blue};
+    font-size: 1.8rem;
   }
 `;
 
