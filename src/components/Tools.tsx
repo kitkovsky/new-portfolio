@@ -138,7 +138,7 @@ const Tools: React.FC = () => {
             <p>React</p>
           </TechDiv>
           <TechDiv>
-            <img src={styledComponents} alt="styled components" />
+            <img src={styledComponents} alt="styled components" style={{height: "5rem"}}/>
             <p>
               Styled
               <br />
