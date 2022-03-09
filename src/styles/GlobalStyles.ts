@@ -62,16 +62,4 @@ export const GlobalStyle = createGlobalStyle`
       margin: auto;
     }
   }
-
-  @media screen and (max-width: 1400px) {
-    html {
-      font-size: 50%;
-    }
-  }
-
-  @media screen and (max-width: 1000px) {
-    html {
-      font-size: 40%;
-    }
-  }
 `;
