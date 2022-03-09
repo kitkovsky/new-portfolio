@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import logo from "../assets/logo.svg";
 
@@ -91,6 +91,12 @@ const Burger = styled.div`
 `;
 
 const Nav: React.FC = () => {
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
+
+  const handleMobileNav = () => {
+    setMobileNavOpen(!mobileNavOpen);
+  };
+
   return (
     <Header>
       <Logo href="#hero">
@@ -110,7 +116,23 @@ const Nav: React.FC = () => {
           <a href="#contact">Kontakt</a>
         </li>
       </Ul>
-      <Burger>
+      <UlMobileWrapper mobileNavOpen={mobileNavOpen}>
+        <UlMobile>
+          <li>
+            <a href="#hero">Strona Główna</a>
+          </li>
+          <li>
+            <a href="#portfolio">Portfolio</a>
+          </li>
+          <li>
+            <a href="#tools">Umiejętności</a>
+          </li>
+          <li>
+            <a href="#contact">Kontakt</a>
+          </li>
+        </UlMobile>
+      </UlMobileWrapper>
+      <Burger onClick={handleMobileNav}>
         <span></span>
         <span></span>
         <span></span>
