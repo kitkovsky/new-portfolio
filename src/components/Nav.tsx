@@ -93,7 +93,7 @@ const Ul = styled.ul`
 const UlMobileWrapper = styled.div`
   height: 100vh;
   width: 100vw;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   transform: translateX(100vw);

@@ -13,10 +13,6 @@ export const GlobalStyle = createGlobalStyle`
     display: none;
   }
 
-  .no-scroll {
-    overflow-y: hidden;
-  }
-
   * {
     margin: 0;
     padding: 0;
