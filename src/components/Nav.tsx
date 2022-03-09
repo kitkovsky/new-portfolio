@@ -74,6 +74,16 @@ const UlMobileWrapper = styled.div`
 
 const UlMobile = styled.ul`
   list-style: none;
+  margin-left: 1rem;
+  margin-top: 20vh;
+
+  li {
+    padding: 1rem;
+  }
+
+  a {
+    font-size: 4rem;
+  }
 `;
 
 const Burger = styled.div`
@@ -81,7 +91,7 @@ const Burger = styled.div`
   height: 1.5rem;
   width: 3.2rem;
   transform: rotate(0deg);
-  transition: all 0.5 ease-in-out;
+  transition: all 0.5s ease-in-out;
   display: none;
 
   span {
@@ -89,6 +99,7 @@ const Burger = styled.div`
     position: absolute;
     height: 1px;
     background: white;
+    transition: all 0.25s ease-in-out;
   }
 
   span:nth-child(1) {
@@ -159,7 +170,10 @@ const Nav: React.FC<Props> = ({ mobileNavOpen, setMobileNavOpen }) => {
           </li>
         </UlMobile>
       </UlMobileWrapper>
-      <Burger onClick={handleMobileNav}>
+      <Burger
+        onClick={handleMobileNav}
+        className={mobileNavOpen ? "active" : ""}
+      >
         <span></span>
         <span></span>
         <span></span>
