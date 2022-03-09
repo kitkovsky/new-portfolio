@@ -15,9 +15,13 @@ const Section = styled.section`
   margin: 25rem 5rem;
   display: flex;
 
+  @media screen and (max-width: 900px) {
+    margin: 20rem 3rem;
+  }
+
   @media screen and (max-width: 750px) {
     flex-direction: column;
-    margin: 15rem 5rem;
+    margin: 15rem 3rem;
   }
 `;
 

@@ -20,13 +20,21 @@ const Section = styled.section`
   margin: 25rem 5rem;
   display: flex;
 
+  @media screen and (max-width: 900px) {
+    margin: 20rem 3rem;
+  }
+
   @media screen and (max-width: 750px) {
     flex-direction: column;
-    margin: 15rem 5rem;
+    margin: 15rem 3rem;
   }
 `;
 
 const Text = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
   flex: 1 1 20rem;
   margin-right: 7rem;
 
@@ -69,14 +77,17 @@ const TechGrid = styled.div`
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  margin-bottom: 2rem;
 `;
 
 const TechDiv = styled.div`
   display: flex;
-  flex-basis: 13rem;
+  flex-basis: 10rem;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  text-align: center;
   flex-direction: column;
+  height: 141px;
 
   p {
     color: ${PrimaryColours.grey};

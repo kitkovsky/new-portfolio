@@ -5,11 +5,14 @@ import logo from "../assets/logo.svg";
 const Header = styled.header`
   display: flex;
   max-height: 10rem;
-  margin: 0rem 5rem;
   position: sticky;
   top: 0;
   backdrop-filter: blur(20px);
   z-index: 2;
+
+  @media screen and (max-width: 750px) {
+    max-height: 7rem;
+  }
 `;
 
 const Logo = styled.a`
@@ -18,6 +21,7 @@ const Logo = styled.a`
   align-items: center;
   justify-content: flex-start;
   padding: 2rem 0rem;
+  padding-left: 4rem;
 
   img {
     height: 80%;
