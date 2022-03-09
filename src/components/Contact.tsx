@@ -139,7 +139,7 @@ const Contact: React.FC = () => {
         </ContactLinks>
       </Text>
       <FormWrapper>
-        <StyledForm data-netlify="true" name="contact" method="POST">
+        <StyledForm data-netlify="true" name="contact" action="POST">
           <label htmlFor="email">Email</label>
           <input type="email" id="email" name="email" required />
           <label htmlFor="message">Wiadomość</label>
