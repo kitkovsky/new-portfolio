@@ -4,11 +4,17 @@ import logo from "../assets/logo.svg";
 
 const Header = styled.header`
   display: flex;
+  align-items: center;
   max-height: 10rem;
   position: sticky;
   top: 0;
   backdrop-filter: blur(20px);
   z-index: 2;
+  padding: 0rem 5rem;
+
+  @media screen and (max-width: 900px) {
+    padding: 0rem 3rem;
+  }
 
   @media screen and (max-width: 750px) {
     max-height: 7rem;
@@ -21,10 +27,9 @@ const Logo = styled.a`
   align-items: center;
   justify-content: flex-start;
   padding: 2rem 0rem;
-  padding-left: 4rem;
 
   img {
-    height: 80%;
+    height: 3rem;
   }
 `;
 
@@ -52,6 +57,39 @@ const Ul = styled.ul`
   }
 `;
 
+const Burger = styled.div`
+  cursor: pointer;
+  height: 1.5rem;
+  width: 3.2rem;
+  transform: rotate(0deg);
+  transition: all 0.5 ease-in-out;
+
+  span {
+    display: block;
+    position: absolute;
+    height: 1px;
+    background: white;
+  }
+
+  span:nth-child(1) {
+    top: 0rem;
+    left: 0.8rem;
+    width: 2.4rem;
+  }
+
+  span:nth-child(2),
+  span:nth-child(3) {
+    width: 100%;
+    top: 0.8rem;
+  }
+
+  span:nth-child(4) {
+    top: 1.6rem;
+    left: 1.2rem;
+    width: 2rem;
+  }
+`;
+
 const Nav: React.FC = () => {
   return (
     <Header>
@@ -59,11 +97,25 @@ const Nav: React.FC = () => {
         <img src={logo} alt="logo" />
       </Logo>
       <Ul>
-        <li><a href="#hero">Strona Główna</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#tools">Umiejętności</a></li>
-        <li><a href="#contact">Kontakt</a></li>
+        <li>
+          <a href="#hero">Strona Główna</a>
+        </li>
+        <li>
+          <a href="#portfolio">Portfolio</a>
+        </li>
+        <li>
+          <a href="#tools">Umiejętności</a>
+        </li>
+        <li>
+          <a href="#contact">Kontakt</a>
+        </li>
       </Ul>
+      <Burger>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </Burger>
     </Header>
   );
 };
