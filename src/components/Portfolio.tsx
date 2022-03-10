@@ -5,6 +5,7 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import { PrimaryColours } from "../styles/GlobalStyles";
+import { motion } from "framer-motion";
 import capture from "../assets/capture.png";
 import colourPicker from "../assets/colour-picker.png";
 import musicPlayer from "../assets/music-player.png";
@@ -29,7 +30,7 @@ const Section = styled.section`
   }
 `;
 
-const PortfolioText = styled.div`
+const PortfolioText = styled(motion.div)`
   flex: 1 1 20rem;
   margin-right: 7rem;
 

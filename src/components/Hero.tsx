@@ -4,7 +4,7 @@ import heroImage from "../assets/hero-img.svg";
 import { PrimaryColours } from "../styles/GlobalStyles";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 
 const Section = styled.section`
   margin: 7rem 5rem;
@@ -77,47 +77,10 @@ const HeroImg = styled(motion.div)`
   }
 `;
 
-const animateFromLeft: Variants = {
-  initial: {
-    x: "-100%",
-    opacity: 0,
-  },
-
-  whileInView: {
-    x: "0",
-    opacity: 1,
-    transition: {
-      duration: 1,
-      ease: "circOut",
-    },
-  },
-};
-
-const animateFromBottom: Variants = {
-  initial: {
-    y: "100%",
-    opacity: 0,
-  },
-
-  whileInView: {
-    y: "0",
-    opacity: 1,
-    transition: {
-      duration: 1,
-      ease: "circOut",
-    },
-  },
-};
-
 const Hero: React.FC = () => {
   return (
     <Section id="hero">
-      <HeroText
-        variants={animateFromLeft}
-        initial="initial"
-        whileInView="whileInView"
-        viewport={{ once: true }}
-      >
+      <HeroText>
         <p className="hero-colour">Oliwer Kitkowski</p>
         <HeroMainText>Nowoczesne strony internetowe</HeroMainText>
         <p>
@@ -129,12 +92,7 @@ const Hero: React.FC = () => {
           <a href="#portfolio">Zobacz portfolio</a>
         </ScrollDown>
       </HeroText>
-      <HeroImg
-        variants={animateFromBottom}
-        initial="initial"
-        whileInView="whileInView"
-        viewport={{ once: true }}
-      >
+      <HeroImg>
         <img src={heroImage} alt="hero code" />
       </HeroImg>
     </Section>
