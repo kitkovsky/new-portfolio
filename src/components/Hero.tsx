@@ -4,6 +4,7 @@ import heroImage from "../assets/hero-img.svg";
 import { PrimaryColours } from "../styles/GlobalStyles";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { motion, Variants } from "framer-motion";
 
 const Section = styled.section`
   margin: 7rem 5rem;
@@ -24,7 +25,7 @@ const Section = styled.section`
   }
 `;
 
-const HeroText = styled.div`
+const HeroText = styled(motion.div)`
   flex: 1 1 20rem;
   margin-right: 2rem;
 
@@ -46,7 +47,6 @@ const HeroMainText = styled.h1`
   font-weight: bold;
 `;
 
-
 const ScrollDown = styled.div`
   cursor: pointer;
 
@@ -62,7 +62,7 @@ const ScrollDown = styled.div`
   }
 `;
 
-const HeroImg = styled.div`
+const HeroImg = styled(motion.div)`
   flex: 1 1 20rem;
   display: flex;
   align-items: center;
@@ -77,10 +77,47 @@ const HeroImg = styled.div`
   }
 `;
 
+const animateFromLeft: Variants = {
+  initial: {
+    x: "-100%",
+    opacity: 0,
+  },
+
+  whileInView: {
+    x: "0",
+    opacity: 1,
+    transition: {
+      duration: 1,
+      ease: "circOut",
+    },
+  },
+};
+
+const animateFromBottom: Variants = {
+  initial: {
+    y: "100%",
+    opacity: 0,
+  },
+
+  whileInView: {
+    y: "0",
+    opacity: 1,
+    transition: {
+      duration: 1,
+      ease: "circOut",
+    },
+  },
+};
+
 const Hero: React.FC = () => {
   return (
     <Section id="hero">
-      <HeroText>
+      <HeroText
+        variants={animateFromLeft}
+        initial="initial"
+        whileInView="whileInView"
+        viewport={{ once: true }}
+      >
         <p className="hero-colour">Oliwer Kitkowski</p>
         <HeroMainText>Nowoczesne strony internetowe</HeroMainText>
         <p>
@@ -92,7 +129,12 @@ const Hero: React.FC = () => {
           <a href="#portfolio">Zobacz portfolio</a>
         </ScrollDown>
       </HeroText>
-      <HeroImg>
+      <HeroImg
+        variants={animateFromBottom}
+        initial="initial"
+        whileInView="whileInView"
+        viewport={{ once: true }}
+      >
         <img src={heroImage} alt="hero code" />
       </HeroImg>
     </Section>
