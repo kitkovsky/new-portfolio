@@ -82,7 +82,11 @@ const Arrow = styled(motion.img)`
   height: 1.5rem;
 `;
 
-const Hero: React.FC = () => {
+interface Props {
+  heroRef: (node?: Element | null | undefined) => void;
+}
+
+const Hero: React.FC<Props> = ({ heroRef }) => {
   const controls = useAnimation();
   const [textRef, textInView] = useInView({ triggerOnce: true });
   const [imgRef, imgInView] = useInView({ triggerOnce: true });
@@ -100,7 +104,7 @@ const Hero: React.FC = () => {
   }, [controls, imgInView]);
 
   return (
-    <Section id="hero">
+    <Section id="hero" ref={heroRef}>
       <HeroText
         ref={textRef}
         initial="hidden"

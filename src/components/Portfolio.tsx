@@ -131,7 +131,11 @@ const GreyP = styled.p`
   }
 `;
 
-const Portfolio: React.FC = () => {
+interface Props {
+  portfolioRef: (node?: Element | null | undefined) => void;
+}
+
+const Portfolio: React.FC<Props> = ({ portfolioRef }) => {
   const controls = useAnimation();
   const [textRef, textInView] = useInView({
     threshold: 0.3,
@@ -152,7 +156,7 @@ const Portfolio: React.FC = () => {
   // }, [controls, imgInView]);
 
   return (
-    <Section id="portfolio">
+    <Section id="portfolio" ref={portfolioRef}>
       <PortfolioText
         ref={textRef}
         initial="hidden"

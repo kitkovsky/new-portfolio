@@ -128,7 +128,11 @@ const ContactDiv = styled.div`
   }
 `;
 
-const Contact: React.FC = () => {
+interface Props {
+  contactRef: (node?: Element | null | undefined) => void;
+}
+
+const Contact: React.FC<Props> = ({ contactRef }) => {
   const controls = useAnimation();
   const [textRef, textInView] = useInView({
     threshold: 0.3,
@@ -149,7 +153,7 @@ const Contact: React.FC = () => {
   }, [controls, imgInView]);
 
   return (
-    <Section id="contact">
+    <Section id="contact" ref={contactRef}>
       <Text
         ref={textRef}
         initial="hidden"

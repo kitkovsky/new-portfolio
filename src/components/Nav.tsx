@@ -3,6 +3,7 @@ import styled from "styled-components";
 import logo from "../assets/logo.svg";
 import noise from "../assets/noise.png";
 import { PrimaryColours } from "../styles/GlobalStyles";
+import { SectionState } from "../App";
 
 const Header = styled.header`
   display: flex;
@@ -13,6 +14,12 @@ const Header = styled.header`
   backdrop-filter: blur(20px);
   z-index: 2;
   padding: 0rem 5rem;
+
+  .activeSection {
+    a {
+      color: red;
+    }
+  }
 
   .active {
     transform: translateX(0);
@@ -158,9 +165,14 @@ const Burger = styled.div`
 interface Props {
   mobileNavOpen: boolean;
   setMobileNavOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  sectionStates: SectionState[];
 }
 
-const Nav: React.FC<Props> = ({ mobileNavOpen, setMobileNavOpen }) => {
+const Nav: React.FC<Props> = ({
+  mobileNavOpen,
+  setMobileNavOpen,
+  sectionStates,
+}) => {
   const handleMobileNav = () => {
     setMobileNavOpen(!mobileNavOpen);
   };
@@ -171,16 +183,16 @@ const Nav: React.FC<Props> = ({ mobileNavOpen, setMobileNavOpen }) => {
         <img src={logo} alt="logo" />
       </Logo>
       <Ul>
-        <li>
+        <li className={sectionStates[0].state ? "activeSection" : ""}>
           <a href="#hero">Strona główna</a>
         </li>
-        <li>
+        <li className={sectionStates[1].state ? "activeSection" : ""}>
           <a href="#portfolio">Portfolio</a>
         </li>
-        <li>
+        <li className={sectionStates[2].state ? "activeSection" : ""}>
           <a href="#tools">Umiejętności</a>
         </li>
-        <li>
+        <li className={sectionStates[3].state ? "activeSection" : ""}>
           <a href="#contact">Kontakt</a>
         </li>
       </Ul>

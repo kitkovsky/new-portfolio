@@ -114,7 +114,11 @@ const GreyIcon = styled(FontAwesomeIcon)`
   color: ${PrimaryColours.textGrey};
 `;
 
-const Tools: React.FC = () => {
+interface Props {
+  toolsRef: (node?: Element | null | undefined) => void;
+}
+
+const Tools: React.FC<Props> = ({ toolsRef }) => {
   const controls = useAnimation();
   const [textRef, textInView] = useInView({
     threshold: 0.3,
@@ -135,7 +139,7 @@ const Tools: React.FC = () => {
   }, [controls, imgInView]);
 
   return (
-    <Section id="tools">
+    <Section id="tools" ref={toolsRef}>
       <Text
         ref={textRef}
         initial="hidden"
