@@ -3,12 +3,13 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import { PrimaryColours } from "../styles/GlobalStyles";
+import { motion } from "framer-motion";
 
-const Arrow = styled.a`
+const Arrow = styled(motion.a)`
   position: fixed;
   bottom: 0rem;
   right: 0rem;
-  background: ${PrimaryColours.bgGrey};
+  background: rgba(30, 30, 30, 0.5);
   margin: 5rem;
   z-index: 2;
 
@@ -35,7 +36,7 @@ interface Props {
 
 const UpArrow: React.FC<Props> = ({ mobileNavOpen }) => {
   return (
-    <Arrow href="#hero">
+    <Arrow href="#hero" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
       <FontAwesomeIcon
         icon={faChevronUp}
         size="2x"
