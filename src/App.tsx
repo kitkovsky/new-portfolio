@@ -114,7 +114,7 @@ const App: React.FC = () => {
         }
       }
     }
-  }, [sectionsInView, heroInView, portfolioInView, sectionStates]);
+  }, [heroInView, portfolioInView, toolsInView, contactInView]);
 
   return (
     <div className="App">
