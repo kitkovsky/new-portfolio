@@ -10,6 +10,13 @@ import UpArrow from "./components/UpArrow";
 import "swiper/css/bundle";
 import { useInView } from "react-intersection-observer";
 
+enum SectionNames {
+  Hero,
+  Portfolio,
+  Tools,
+  Contact,
+}
+
 export type Sections = "hero" | "portfolio" | "tools" | "contact";
 
 export interface SectionState {
@@ -63,46 +70,50 @@ const App: React.FC = () => {
   ]);
 
   useEffect(() => {
-    // if less or more than 1 visible then loop through sectionsInView and set true to the last one
     let numSectionsInView = 0;
     sectionsInView.forEach((visible) => {
       if (visible) {
         numSectionsInView += 1;
       }
     });
-    if (numSectionsInView > 1 || numSectionsInView < 1) {
-      
+    if (numSectionsInView < 1 || numSectionsInView > 1) {
+      if (numSectionsInView > 1 && heroInView && portfolioInView) {
+        setHeroState(true);
+        setPortfolioState(false);
+      }
     } else {
       for (let [key, value] of sectionsInView.entries()) {
-        if (value) {
-          previousSectionInView = key;
+        switch (key) {
+          case "hero":
+            if (value) {
+              sectionStates[SectionNames.Hero].setState(true);
+            } else {
+              sectionStates[SectionNames.Hero].setState(false);
+            }
+            break;
+          case "portfolio":
+            if (value) {
+              sectionStates[SectionNames.Portfolio].setState(true);
+            } else {
+              sectionStates[SectionNames.Portfolio].setState(false);
+            }
+            break;
+          case "tools":
+            if (value) {
+              sectionStates[SectionNames.Tools].setState(true);
+            } else {
+              sectionStates[SectionNames.Tools].setState(false);
+            }
+            break;
+          case "contact":
+            if (value) {
+              sectionStates[SectionNames.Contact].setState(true);
+            } else {
+              sectionStates[SectionNames.Contact].setState(false);
+            }
+            break;
         }
       }
-    }
-
-    if (heroState) {
-      console.log("hero ✅");
-    }
-    if (portfolioState) {
-      console.log("portfolio ✅");
-    }
-    if (toolsState) {
-      console.log("tools ✅");
-    }
-    if (contactState) {
-      console.log("contact ✅");
-    }
-    if (!heroState) {
-      console.log("hero ❌");
-    }
-    if (!portfolioState) {
-      console.log("portfolio ❌");
-    }
-    if (!toolsState) {
-      console.log("tools ❌");
-    }
-    if (!contactState) {
-      console.log("contact ❌");
     }
   }, [heroInView, portfolioInView, toolsInView, contactInView]);
 
