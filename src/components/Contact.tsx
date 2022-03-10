@@ -1,5 +1,8 @@
-import React from "react";
+import { motion, useAnimation } from "framer-motion";
+import React, { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 import styled from "styled-components";
+import { slideBottom, slideLeft } from "../animations/animations";
 import { PrimaryColours } from "../styles/GlobalStyles";
 
 const Section = styled.section`
@@ -20,7 +23,7 @@ const Section = styled.section`
   }
 `;
 
-const Text = styled.div`
+const Text = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -57,7 +60,7 @@ const GreyP = styled.p`
   }
 `;
 
-const FormWrapper = styled.div`
+const FormWrapper = styled(motion.div)`
   flex: 1 1 20rem;
 `;
 
@@ -126,9 +129,39 @@ const ContactDiv = styled.div`
 `;
 
 const Contact: React.FC = () => {
+  const controls = useAnimation();
+  const [textRef, textInView] = useInView({
+    threshold: 0.3,
+    triggerOnce: true,
+  });
+  const [imgRef, imgInView] = useInView({ threshold: 0.3, triggerOnce: true });
+
+  useEffect(() => {
+    if (textInView) {
+      controls.start("visible");
+    }
+    if (!textInView) {
+      controls.start("hidden");
+    }
+  }, [controls, textInView]);
+
+  useEffect(() => {
+    if (imgInView) {
+      controls.start("visible");
+    }
+    if (!textInView) {
+      controls.start("hidden");
+    }
+  }, [controls, imgInView]);
+
   return (
     <Section id="contact">
-      <Text>
+      <Text
+        ref={textRef}
+        initial="hidden"
+        animate={controls}
+        variants={slideLeft}
+      >
         <ColourP>
           <span></span>Kontakt
         </ColourP>
@@ -150,7 +183,12 @@ const Contact: React.FC = () => {
           </ContactDiv>
         </ContactLinks>
       </Text>
-      <FormWrapper>
+      <FormWrapper
+        ref={imgRef}
+        initial="hidden"
+        animate={controls}
+        variants={slideBottom}
+      >
         <StyledForm data-netlify="true" name="contact" method="POST">
           <input type="hidden" name="form-name" value="contact" />
           <label htmlFor="email">Email</label>

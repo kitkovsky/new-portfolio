@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import { PrimaryColours } from "../styles/GlobalStyles";
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { slideLeft, slideBottom } from "../animations/animations";
 import capture from "../assets/capture.png";
 import colourPicker from "../assets/colour-picker.png";
 import musicPlayer from "../assets/music-player.png";
@@ -130,9 +132,39 @@ const GreyP = styled.p`
 `;
 
 const Portfolio: React.FC = () => {
+  const controls = useAnimation();
+  const [textRef, textInView] = useInView({
+    threshold: 0.3,
+    triggerOnce: true,
+  });
+  const [imgRef, imgInView] = useInView({ threshold: 0.01, triggerOnce: true });
+
+  useEffect(() => {
+    if (textInView) {
+      controls.start("visible");
+    }
+    if (!textInView) {
+      controls.start("hidden");
+    }
+  }, [controls, textInView]);
+
+  useEffect(() => {
+    if (imgInView) {
+      controls.start("visible");
+    }
+    if (!textInView) {
+      controls.start("hidden");
+    }
+  }, [controls, imgInView]);
+
   return (
     <Section id="portfolio">
-      <PortfolioText>
+      <PortfolioText
+        ref={textRef}
+        initial="hidden"
+        animate={controls}
+        variants={slideLeft}
+      >
         <ColourP>
           <span></span>Portfolio
         </ColourP>

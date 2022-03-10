@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHtml5,
@@ -15,6 +15,9 @@ import vscode from "../assets/vscode.svg";
 import neovim from "../assets/neovim.svg";
 import styledComponents from "../assets/styled-components.svg";
 import webpack from "../assets/webpack.svg";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { slideLeft, slideBottom } from "../animations/animations";
 
 const Section = styled.section`
   margin: 25rem 5rem;
@@ -34,7 +37,7 @@ const Section = styled.section`
   }
 `;
 
-const Text = styled.div`
+const Text = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -71,7 +74,7 @@ const GreyP = styled.p`
   font-size: 1.8rem;
 `;
 
-const Tech = styled.div`
+const Tech = styled(motion.div)`
   flex: 1 1 20rem;
   display: flex;
   flex-direction: column;
@@ -112,9 +115,39 @@ const GreyIcon = styled(FontAwesomeIcon)`
 `;
 
 const Tools: React.FC = () => {
+  const controls = useAnimation();
+  const [textRef, textInView] = useInView({
+    threshold: 0.3,
+    triggerOnce: true,
+  });
+  const [imgRef, imgInView] = useInView({ threshold: 0.1, triggerOnce: true });
+
+  useEffect(() => {
+    if (textInView) {
+      controls.start("visible");
+    }
+    if (!textInView) {
+      controls.start("hidden");
+    }
+  }, [controls, textInView]);
+
+  useEffect(() => {
+    if (imgInView) {
+      controls.start("visible");
+    }
+    if (!textInView) {
+      controls.start("hidden");
+    }
+  }, [controls, imgInView]);
+
   return (
     <Section id="tools">
-      <Text>
+      <Text
+        ref={textRef}
+        initial="hidden"
+        animate={controls}
+        variants={slideLeft}
+      >
         <ColourP>
           <span></span>Umiejętności i narzędzia
         </ColourP>
@@ -126,7 +159,12 @@ const Tools: React.FC = () => {
           aby były szybkie i wydajne.
         </GreyP>
       </Text>
-      <Tech>
+      <Tech
+        ref={imgRef}
+        initial="hidden"
+        animate={controls}
+        variants={slideBottom}
+      >
         <TechTitle>Programowanie</TechTitle>
         <TechGrid>
           <TechDiv>
@@ -150,7 +188,11 @@ const Tools: React.FC = () => {
             <p>React</p>
           </TechDiv>
           <TechDiv>
-            <img src={styledComponents} alt="styled components" style={{height: "5rem"}}/>
+            <img
+              src={styledComponents}
+              alt="styled components"
+              style={{ height: "5rem" }}
+            />
             <p>
               Styled
               <br />

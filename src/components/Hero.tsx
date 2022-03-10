@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import heroImage from "../assets/hero-img.svg";
 import { PrimaryColours } from "../styles/GlobalStyles";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { slideLeft, slideBottom } from "../animations/animations";
 
 const Section = styled.section`
   margin: 7rem 5rem;
@@ -78,9 +80,36 @@ const HeroImg = styled(motion.div)`
 `;
 
 const Hero: React.FC = () => {
+  const controls = useAnimation();
+  const [textRef, textInView] = useInView({ triggerOnce: true });
+  const [imgRef, imgInView] = useInView({ triggerOnce: true });
+
+  useEffect(() => {
+    if (textInView) {
+      controls.start("visible");
+    }
+    if (!textInView) {
+      controls.start("hidden");
+    }
+  }, [controls, textInView]);
+
+  useEffect(() => {
+    if (imgInView) {
+      controls.start("visible");
+    }
+    if (!textInView) {
+      controls.start("hidden");
+    }
+  }, [controls, imgInView]);
+
   return (
     <Section id="hero">
-      <HeroText>
+      <HeroText
+        ref={textRef}
+        initial="hidden"
+        animate={controls}
+        variants={slideLeft}
+      >
         <p className="hero-colour">Oliwer Kitkowski</p>
         <HeroMainText>Nowoczesne strony internetowe</HeroMainText>
         <p>
@@ -92,7 +121,12 @@ const Hero: React.FC = () => {
           <a href="#portfolio">Zobacz portfolio</a>
         </ScrollDown>
       </HeroText>
-      <HeroImg>
+      <HeroImg
+        ref={imgRef}
+        initial="hidden"
+        animate={controls}
+        variants={slideBottom}
+      >
         <img src={heroImage} alt="hero code" />
       </HeroImg>
     </Section>
