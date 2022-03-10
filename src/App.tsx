@@ -39,7 +39,6 @@ const App: React.FC = () => {
   const [toolsState, setToolsState] = useState(false);
   const [contactState, setContactState] = useState(false);
 
-  let previousSectionInView: Sections = "hero";
   const sectionStates: SectionState[] = [
     {
       name: "hero",
