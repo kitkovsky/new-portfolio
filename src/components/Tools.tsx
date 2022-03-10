@@ -126,17 +126,11 @@ const Tools: React.FC = () => {
     if (textInView) {
       controls.start("visible");
     }
-    if (!textInView) {
-      controls.start("hidden");
-    }
   }, [controls, textInView]);
 
   useEffect(() => {
     if (imgInView) {
       controls.start("visible");
-    }
-    if (!textInView) {
-      controls.start("hidden");
     }
   }, [controls, imgInView]);
 

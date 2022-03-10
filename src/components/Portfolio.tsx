@@ -7,7 +7,7 @@ import { Navigation } from "swiper";
 import { PrimaryColours } from "../styles/GlobalStyles";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { slideLeft, slideBottom } from "../animations/animations";
+import { slideLeft } from "../animations/animations";
 import capture from "../assets/capture.png";
 import colourPicker from "../assets/colour-picker.png";
 import musicPlayer from "../assets/music-player.png";
@@ -137,25 +137,19 @@ const Portfolio: React.FC = () => {
     threshold: 0.3,
     triggerOnce: true,
   });
-  const [imgRef, imgInView] = useInView({ threshold: 0.01, triggerOnce: true });
+  // const [imgRef, imgInView] = useInView({ threshold: 0.01, triggerOnce: true });
 
   useEffect(() => {
     if (textInView) {
       controls.start("visible");
     }
-    if (!textInView) {
-      controls.start("hidden");
-    }
   }, [controls, textInView]);
 
-  useEffect(() => {
-    if (imgInView) {
-      controls.start("visible");
-    }
-    if (!textInView) {
-      controls.start("hidden");
-    }
-  }, [controls, imgInView]);
+  // useEffect(() => {
+  //   if (imgInView) {
+  //     controls.start("visible");
+  //   }
+  // }, [controls, imgInView]);
 
   return (
     <Section id="portfolio">
