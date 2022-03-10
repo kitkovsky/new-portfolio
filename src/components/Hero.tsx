@@ -3,6 +3,7 @@ import styled from "styled-components";
 import heroImage from "../assets/hero-img.svg";
 import { PrimaryColours } from "../styles/GlobalStyles";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import chevronDown from "../assets/chevron.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -79,6 +80,10 @@ const HeroImg = styled(motion.div)`
   }
 `;
 
+const Arrow = styled(motion.img)`
+  height: 1.5rem;
+`;
+
 const Hero: React.FC = () => {
   const controls = useAnimation();
   const [textRef, textInView] = useInView({ triggerOnce: true });
@@ -111,7 +116,12 @@ const Hero: React.FC = () => {
           wykorzystaniem najnowszych technologii.
         </p>
         <ScrollDown>
-          <FontAwesomeIcon icon={faChevronDown} />
+          <Arrow
+            src={chevronDown}
+            initial={{ opacity: 1, y: "-0.2rem" }}
+            animate={{ opacity: 0, y: "0.7rem" }}
+            transition={{ repeat: Infinity, duration: 2.5 }}
+          ></Arrow>
           <a href="#portfolio">Zobacz portfolio</a>
         </ScrollDown>
       </HeroText>
