@@ -15,12 +15,6 @@ const Header = styled.header`
   z-index: 2;
   padding: 0rem 5rem;
 
-  .activeSection {
-    a {
-      color: red;
-    }
-  }
-
   .active {
     transform: translateX(0);
   }
@@ -86,6 +80,17 @@ const Ul = styled.ul`
 
   a {
     font-size: 2rem;
+    color: ${PrimaryColours.textGrey};
+    transition: all 0.7s;
+  }
+
+  .activeSection {
+    a {
+      color: ${PrimaryColours.white};
+      text-decoration: underline;
+      text-decoration-thickness: 0.15rem;
+      text-underline-offset: 0.7rem;
+    }
   }
 
   @media screen and (max-width: 950px) {
@@ -120,6 +125,15 @@ const UlMobile = styled.ul`
 
   a {
     font-size: 4rem;
+    color: ${PrimaryColours.textGrey};
+    transition: all 0.7s;
+  }
+
+  .activeSection {
+    color: ${PrimaryColours.white};
+    text-decoration: underline;
+    text-decoration-thickness: 0.15rem;
+    text-underline-offset: 0.5rem;
   }
 `;
 
@@ -215,22 +229,48 @@ const Nav: React.FC<Props> = ({
       <UlMobileWrapper className={mobileNavOpen ? "active" : ""}>
         <UlMobile>
           <li>
-            <a href="#hero" onClick={handleMobileNav}>
+            <a
+              href="#hero"
+              onClick={handleMobileNav}
+              className={
+                sectionStates[SectionNames.Hero].state ? "activeSection" : ""
+              }
+            >
               Strona główna
             </a>
           </li>
           <li>
-            <a href="#portfolio" onClick={handleMobileNav}>
+            <a
+              href="#portfolio"
+              onClick={handleMobileNav}
+              className={
+                sectionStates[SectionNames.Portfolio].state
+                  ? "activeSection"
+                  : ""
+              }
+            >
               Portfolio
             </a>
           </li>
           <li>
-            <a href="#tools" onClick={handleMobileNav}>
+            <a
+              href="#tools"
+              onClick={handleMobileNav}
+              className={
+                sectionStates[SectionNames.Tools].state ? "activeSection" : ""
+              }
+            >
               Umiejętności
             </a>
           </li>
           <li>
-            <a href="#contact" onClick={handleMobileNav}>
+            <a
+              href="#contact"
+              onClick={handleMobileNav}
+              className={
+                sectionStates[SectionNames.Contact].state ? "activeSection" : ""
+              }
+            >
               Kontakt
             </a>
           </li>
