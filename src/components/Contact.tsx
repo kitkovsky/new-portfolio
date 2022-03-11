@@ -133,10 +133,7 @@ interface Props {
   openModal: () => void;
 }
 
-const Contact: React.FC<Props> = ({
-  contactRef,
-  openModal,
-}) => {
+const Contact: React.FC<Props> = ({ contactRef, openModal }) => {
   const handleSubmit = () => {
     openModal();
     return false;
@@ -201,6 +198,7 @@ const Contact: React.FC<Props> = ({
           name="contact"
           onSubmit={handleSubmit}
           method="POST"
+          action="https://formspree.io/f/mayvjkgd"
         >
           <input type="hidden" name="form-name" value="contact" />
           <label htmlFor="email">Email</label>
