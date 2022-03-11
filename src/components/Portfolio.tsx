@@ -7,7 +7,7 @@ import { Navigation } from "swiper";
 import { PrimaryColours } from "../styles/GlobalStyles";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { slideLeft } from "../animations/animations";
+import { slideBottom, slideLeft } from "../animations/animations";
 import capture from "../assets/capture.png";
 import colourPicker from "../assets/colour-picker.png";
 import musicPlayer from "../assets/music-player.png";
@@ -34,7 +34,7 @@ const Section = styled.section`
 
 const PortfolioText = styled(motion.div)`
   flex: 1 1 20rem;
-  margin-right: 7rem;
+  // margin-right: 7rem;
 
   h2 {
     font-weight: bold;
@@ -71,31 +71,41 @@ const ColourP = styled.p`
   }
 `;
 
-const SwiperStyled = styled(Swiper)`
+const SwiperWrapper = styled(motion.div)`
+  max-width: 50%;
   flex: 1 1 20rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media screen and (max-width: 750px) {
+    max-width: 100%;
+  }
+`;
+
+const SwiperStyled = styled(Swiper)`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
   .swiper-slide {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 
     img {
       width: 100%;
+    }
+
+    h3 {
+      color: ${PrimaryColours.textGrey};
     }
   }
 
   .swiper-button-prev,
   .swiper-button-next {
     color: ${PrimaryColours.blue};
-  }
-
-  .swiper-button-next {
-    padding-right: 4rem;
-  }
-
-  .swiper-button-prev {
-    padding-left: 4rem;
   }
 
   @media screen and (max-width: 750px) {
@@ -141,7 +151,7 @@ const Portfolio: React.FC<Props> = ({ portfolioRef }) => {
     threshold: 0.3,
     triggerOnce: true,
   });
-  // const [imgRef, imgInView] = useInView({ threshold: 0.01, triggerOnce: true });
+  const [imgRef, imgInView] = useInView({ threshold: 0.01, triggerOnce: true });
 
   useEffect(() => {
     if (textInView) {
@@ -149,11 +159,11 @@ const Portfolio: React.FC<Props> = ({ portfolioRef }) => {
     }
   }, [controls, textInView]);
 
-  // useEffect(() => {
-  //   if (imgInView) {
-  //     controls.start("visible");
-  //   }
-  // }, [controls, imgInView]);
+  useEffect(() => {
+    if (imgInView) {
+      controls.start("visible");
+    }
+  }, [controls, imgInView]);
 
   return (
     <Section id="portfolio" ref={portfolioRef}>
@@ -183,67 +193,74 @@ const Portfolio: React.FC<Props> = ({ portfolioRef }) => {
           </a>
         </div>
       </PortfolioText>
-      <SwiperStyled
-        slidesPerView={1}
-        spaceBetween={30}
-        loop={true}
-        navigation={true}
-        modules={[Navigation]}
+      <SwiperWrapper
+        ref={imgRef}
+        initial="hidden"
+        animate={controls}
+        variants={slideBottom}
       >
-        <SwiperSlide>
-          <a
-            href="https://vibrant-brattain-45c715.netlify.app"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img src={capture} alt="capture website" />
-          </a>
-          <h3>Capture</h3>
-        </SwiperSlide>
-        <SwiperSlide>
-          <a
-            href="https://optimistic-rosalind-1bef0e.netlify.app"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img src={colourPicker} alt="colour picker website" />
-          </a>
-          <h3>Colour Picker</h3>
-        </SwiperSlide>
-        <SwiperSlide>
-          <a
-            href="https://gifted-yonath-096073.netlify.app"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img src={musicPlayer} alt="music player website" />
-          </a>
-          <h3>Music Player</h3>
-        </SwiperSlide>
-        <SwiperSlide>
-          <a
-            href="https://determined-bhaskara-0b23f3.netlify.app"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img
-              src={photographyPortfolio}
-              alt="photography portfolio website"
-            />
-          </a>
-          <h3>Photography Portfolio</h3>
-        </SwiperSlide>
-        <SwiperSlide>
-          <a
-            href="https://gracious-lovelace-036ae5.netlify.app"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img src={beatmaker} alt="beatmaker website" />
-          </a>
-          <h3>Beatmaker</h3>
-        </SwiperSlide>
-      </SwiperStyled>
+        <SwiperStyled
+          slidesPerView={1}
+          spaceBetween={30}
+          loop={true}
+          navigation={true}
+          modules={[Navigation]}
+        >
+          <SwiperSlide>
+            <a
+              href="https://vibrant-brattain-45c715.netlify.app"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src={capture} alt="capture website" />
+            </a>
+            <h3>Capture</h3>
+          </SwiperSlide>
+          <SwiperSlide>
+            <a
+              href="https://optimistic-rosalind-1bef0e.netlify.app"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src={colourPicker} alt="colour picker website" />
+            </a>
+            <h3>Colour Picker</h3>
+          </SwiperSlide>
+          <SwiperSlide>
+            <a
+              href="https://gifted-yonath-096073.netlify.app"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src={musicPlayer} alt="music player website" />
+            </a>
+            <h3>Music Player</h3>
+          </SwiperSlide>
+          <SwiperSlide>
+            <a
+              href="https://determined-bhaskara-0b23f3.netlify.app"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                src={photographyPortfolio}
+                alt="photography portfolio website"
+              />
+            </a>
+            <h3>Photography Portfolio</h3>
+          </SwiperSlide>
+          <SwiperSlide>
+            <a
+              href="https://gracious-lovelace-036ae5.netlify.app"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src={beatmaker} alt="beatmaker website" />
+            </a>
+            <h3>Beatmaker</h3>
+          </SwiperSlide>
+        </SwiperStyled>
+      </SwiperWrapper>
     </Section>
   );
 };
