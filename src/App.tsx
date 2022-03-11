@@ -132,7 +132,7 @@ const App: React.FC = () => {
       <Tools toolsRef={toolsRef} />
       <Contact contactRef={contactRef} />
       <Footer />
-      <UpArrow mobileNavOpen={mobileNavOpen} />
+      <UpArrow mobileNavOpen={mobileNavOpen} heroState={heroState}/>
     </div>
   );
 };
