@@ -130,9 +130,22 @@ const ContactDiv = styled.div`
 
 interface Props {
   contactRef: (node?: Element | null | undefined) => void;
+  modalOpen: boolean;
+  openModal: () => void;
+  closeModal: () => void;
 }
 
-const Contact: React.FC<Props> = ({ contactRef }) => {
+const Contact: React.FC<Props> = ({
+  contactRef,
+  modalOpen,
+  openModal,
+  closeModal,
+}) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    openModal();
+  };
+
   const controls = useAnimation();
   const [textRef, textInView] = useInView({
     threshold: 0.3,
@@ -187,7 +200,12 @@ const Contact: React.FC<Props> = ({ contactRef }) => {
         animate={controls}
         variants={slideBottom}
       >
-        <StyledForm data-netlify="true" name="contact" method="POST">
+        <StyledForm
+          data-netlify="true"
+          name="contact"
+          onSubmit={(event) => handleSubmit(event)}
+          method="POST"
+        >
           <input type="hidden" name="form-name" value="contact" />
           <label htmlFor="email">Email</label>
           <input type="email" id="email" name="email" required />

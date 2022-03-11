@@ -9,6 +9,8 @@ import Footer from "./components/Footer";
 import UpArrow from "./components/UpArrow";
 import "swiper/css/bundle";
 import { useInView } from "react-intersection-observer";
+import Modal from "./components/Modal";
+import { AnimatePresence } from "framer-motion";
 
 export enum SectionNames {
   Hero,
@@ -26,6 +28,10 @@ export interface SectionState {
 }
 
 const App: React.FC = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+  const closeModal = () => setModalOpen(false);
+  const openModal = () => setModalOpen(true);
+
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const threshold = 0.5;
 
@@ -130,9 +136,17 @@ const App: React.FC = () => {
       <Hero heroRef={heroRef} />
       <Portfolio portfolioRef={portfolioRef} />
       <Tools toolsRef={toolsRef} />
-      <Contact contactRef={contactRef} />
+      <Contact
+        contactRef={contactRef}
+        modalOpen={modalOpen}
+        openModal={openModal}
+        closeModal={closeModal}
+      />
       <Footer />
-      <UpArrow mobileNavOpen={mobileNavOpen} heroState={heroState}/>
+      <UpArrow mobileNavOpen={mobileNavOpen} heroState={heroState} />
+      <AnimatePresence initial={false} exitBeforeEnter={true}>
+        {modalOpen && <Modal handleClose={closeModal} />}
+      </AnimatePresence>
     </div>
   );
 };
