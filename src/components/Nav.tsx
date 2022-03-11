@@ -89,7 +89,6 @@ const Ul = styled.ul`
       color: ${PrimaryColours.white};
       text-decoration: underline;
       text-decoration-thickness: 0.15rem;
-      text-underline-offset: 0.7rem;
     }
   }
 
