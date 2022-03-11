@@ -10,14 +10,14 @@ import UpArrow from "./components/UpArrow";
 import "swiper/css/bundle";
 import { useInView } from "react-intersection-observer";
 
-enum SectionNames {
+export enum SectionNames {
   Hero,
   Portfolio,
   Tools,
   Contact,
 }
 
-export type Sections = "hero" | "portfolio" | "tools" | "contact";
+type Sections = "hero" | "portfolio" | "tools" | "contact";
 
 export interface SectionState {
   name: string;

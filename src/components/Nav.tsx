@@ -3,7 +3,7 @@ import styled from "styled-components";
 import logo from "../assets/logo.svg";
 import noise from "../assets/noise.png";
 import { PrimaryColours } from "../styles/GlobalStyles";
-import { SectionState } from "../App";
+import { SectionState, SectionNames } from "../App";
 
 const Header = styled.header`
   display: flex;
@@ -183,16 +183,32 @@ const Nav: React.FC<Props> = ({
         <img src={logo} alt="logo" />
       </Logo>
       <Ul>
-        <li className={sectionStates[0].state ? "activeSection" : ""}>
+        <li
+          className={
+            sectionStates[SectionNames.Hero].state ? "activeSection" : ""
+          }
+        >
           <a href="#hero">Strona główna</a>
         </li>
-        <li className={sectionStates[1].state ? "activeSection" : ""}>
+        <li
+          className={
+            sectionStates[SectionNames.Portfolio].state ? "activeSection" : ""
+          }
+        >
           <a href="#portfolio">Portfolio</a>
         </li>
-        <li className={sectionStates[2].state ? "activeSection" : ""}>
+        <li
+          className={
+            sectionStates[SectionNames.Tools].state ? "activeSection" : ""
+          }
+        >
           <a href="#tools">Umiejętności</a>
         </li>
-        <li className={sectionStates[3].state ? "activeSection" : ""}>
+        <li
+          className={
+            sectionStates[SectionNames.Contact].state ? "activeSection" : ""
+          }
+        >
           <a href="#contact">Kontakt</a>
         </li>
       </Ul>
