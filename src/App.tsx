@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { GlobalStyle } from "./styles/GlobalStyles";
 import Hero from "./components/Hero";
 import Nav from "./components/Nav";
@@ -39,36 +39,39 @@ const App: React.FC = () => {
   const [toolsState, setToolsState] = useState(false);
   const [contactState, setContactState] = useState(false);
 
-  const sectionStates: SectionState[] = [
-    {
-      name: "hero",
-      state: heroState,
-      setState: setHeroState,
-    },
-    {
-      name: "portfolio",
-      state: portfolioState,
-      setState: setPortfolioState,
-    },
-    {
-      name: "tools",
-      state: toolsState,
-      setState: setToolsState,
-    },
-    {
-      name: "contact",
-      state: contactState,
-      setState: setContactState,
-    },
-  ];
-  const sectionsInView = new Map<Sections, boolean>([
-    ["hero", heroInView],
-    ["portfolio", portfolioInView],
-    ["tools", toolsInView],
-    ["contact", contactInView],
-  ]);
+  const sectionStates: SectionState[] = useMemo(() => {
+    return [
+      {
+        name: "hero",
+        state: heroState,
+        setState: setHeroState,
+      },
+      {
+        name: "portfolio",
+        state: portfolioState,
+        setState: setPortfolioState,
+      },
+      {
+        name: "tools",
+        state: toolsState,
+        setState: setToolsState,
+      },
+      {
+        name: "contact",
+        state: contactState,
+        setState: setContactState,
+      },
+    ];
+  }, [heroState, portfolioState, toolsState, contactState]);
 
   useEffect(() => {
+    const sectionsInView = new Map<Sections, boolean>([
+      ["hero", heroInView],
+      ["portfolio", portfolioInView],
+      ["tools", toolsInView],
+      ["contact", contactInView],
+    ]);
+
     let numSectionsInView = 0;
     sectionsInView.forEach((visible) => {
       if (visible) {
@@ -114,7 +117,7 @@ const App: React.FC = () => {
         }
       }
     }
-  }, [heroInView, portfolioInView, toolsInView, contactInView]);
+  }, [heroInView, portfolioInView, toolsInView, contactInView, sectionStates]);
 
   return (
     <div className="App">
