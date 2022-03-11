@@ -27,7 +27,7 @@ export interface SectionState {
 
 const App: React.FC = () => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
-  const threshold = 0.8;
+  const threshold = 0.5;
 
   const [heroRef, heroInView] = useInView({ threshold: threshold });
   const [portfolioRef, portfolioInView] = useInView({ threshold: threshold });
