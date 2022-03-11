@@ -130,20 +130,16 @@ const ContactDiv = styled.div`
 
 interface Props {
   contactRef: (node?: Element | null | undefined) => void;
-  modalOpen: boolean;
   openModal: () => void;
-  closeModal: () => void;
 }
 
 const Contact: React.FC<Props> = ({
   contactRef,
-  modalOpen,
   openModal,
-  closeModal,
 }) => {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const handleSubmit = () => {
     openModal();
+    return false;
   };
 
   const controls = useAnimation();
@@ -203,7 +199,7 @@ const Contact: React.FC<Props> = ({
         <StyledForm
           data-netlify="true"
           name="contact"
-          onSubmit={(event) => handleSubmit(event)}
+          onSubmit={handleSubmit}
           method="POST"
         >
           <input type="hidden" name="form-name" value="contact" />

@@ -138,9 +138,7 @@ const App: React.FC = () => {
       <Tools toolsRef={toolsRef} />
       <Contact
         contactRef={contactRef}
-        modalOpen={modalOpen}
         openModal={openModal}
-        closeModal={closeModal}
       />
       <Footer />
       <UpArrow mobileNavOpen={mobileNavOpen} heroState={heroState} />
