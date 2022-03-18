@@ -78,6 +78,10 @@ const Tech = styled(motion.div)`
   flex: 1 1 20rem;
   display: flex;
   flex-direction: column;
+
+  @media screen and (max-width: 750px ) {
+    margin: 8rem 0rem;
+  }
 `;
 
 const TechTitle = styled.h3`

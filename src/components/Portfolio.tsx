@@ -80,6 +80,7 @@ const SwiperWrapper = styled(motion.div)`
 
   @media screen and (max-width: 750px) {
     max-width: 100%;
+    margin-bottom: 8rem;
   }
 `;
 

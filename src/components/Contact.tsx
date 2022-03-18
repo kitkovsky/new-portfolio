@@ -62,6 +62,10 @@ const GreyP = styled.p`
 
 const FormWrapper = styled(motion.div)`
   flex: 1 1 20rem;
+
+  @media screen and (max-width: 750px ) {
+    margin: 8rem 0rem;
+  }
 `;
 
 const StyledForm = styled.form`
