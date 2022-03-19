@@ -1,6 +1,6 @@
 # My Personal Portfolio Website
 
-Hosted over [here](https://pensive-curie-90365f.netlify.app).
+Hosted at [oliwerkitkowski.com](https://www.oliwerkitkowski.com).
 
 Built with **React**, **TypeScript** and **Styled Components**.
 The animations are done with **Motion Framer**.
